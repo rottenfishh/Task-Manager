@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="_csrf" content="" th:content="${_csrf.token}" />
+        <meta name="_csrf_header" content="" th:content="${_csrf.headerName}" />
+
+        <link rel = "stylesheet" href="styles.css">
+        <title>Todo List</title>
+    </head>
+    <body>
+        <h1>
+            <a href = "/login"> logout </a> <a href = "/profile"> profile </a>
+        </h1>
+        <h1> ToDo's </h1>
+        <div class="dropdown">
+            <button onclick="categoryFilter()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                <ul id = "categoryList"></ul>
+            </div>
+        </div>
+
+        <fieldset class = "compact-form">
+            <legend> New Task </legend>
+            <label for="newTaskName"></label><input type = "text" id = "newTaskName" placeholder="Enter a new task">
+            <label for="newTaskDescription"></label><textarea class = "task" id = "newTaskDescription" placeholder="Enter task description" rows="1" cols="33">Have fun</textarea>
+        </fieldset>
+        <button onclick = "createTask()">Add task</button>
+        <ul id = "tasksList"></ul>
+        <script src="tasks.js"></script>
+    </body>
+</html>
